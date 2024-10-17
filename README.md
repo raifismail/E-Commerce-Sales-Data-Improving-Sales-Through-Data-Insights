@@ -56,7 +56,19 @@ The key stakeholders for this project include:
      North to balance the performance.
 
 2. Top-performing Product Categories
-   -
-   
+   - The funnel chart clearly shows that certain product categories, such as sports and Clothing, are the biggest 
+     contributors to total sales. This insight suggests a need to maintain higher inventory levels for these categories and 
+     potentially introduce cross-promotions with complementary products.
 
+3. Seasonal Trends
+   - The line chart for monthly sales trends reveals that sales peak during March and May, with April and June showing a 
+     slight decline. This indicates that seasonal promotions or campaigns might be effective in april to febraury to boost 
+     sales during slower periods.
+
+4. Sales Trends by Region:
+   - The additional line chart showing regional sales trends over time highlights that the East region consistently leads in 
+     sales, followed by the West region. Both North and South regions show steady but lower growth. This suggests a need to 
+     explore region-specific marketing strategies for North and South to increase sales in those areas.
+
+# Recommendations
 
