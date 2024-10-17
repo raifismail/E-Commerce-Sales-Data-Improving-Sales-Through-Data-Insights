@@ -18,4 +18,6 @@ The goal of this project was to analyze the sales data of an e-commerce platform
 
 The analysis was conducted using Excel, BigQuery, R programming, and Power BI for visualization.
 
+![screenshot_of_visualizations](https://github.com/raifismail/E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights/blob/d19134860ff272497ad25f89a8759da29244827a/Screenshot%202024-10-16%20114313.png)
+
 
