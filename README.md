@@ -8,13 +8,13 @@ This e-commerce case study analyzes six months of sales data to identify key bus
 
 The goal of this project was to analyze the sales data of an e-commerce platform to provide actionable insights that can drive business growth. Specifically, we aimed to answer the following key questions:
 
-   - Which regions generate the highest sales?
+   - Identifying regional sales performance to target future marketing efforts.
 
-   - What are the top-selling product categories?
+   - Understanding which product categories drive the most revenue to optimize inventory and product promotion strategies.
 
-   - Are there any observable trends in sales over time (monthly)?
+   - Analyzing monthly sales trends to spot seasonality and plan promotional campaigns more effectively.
 
-   - How do regional sales trends behave over time?
+   - Examining the sales trends across regions to identify regional growth opportunities and potential sales strategies.
 
 The analysis was conducted using Excel, BigQuery, R programming, and Power BI for visualization.
 
@@ -34,13 +34,20 @@ The key stakeholders for this project include:
 4) Business Analysts and Data Teams : To utilize insights from data trends and analysis to inform future business decisions.
 
 
-# Visualizations and Key Insights
+# Visualizations 
 
 1. Total Sales by Region (Stacked Column Chart):
    - This chart provided a breakdown of total sales across the regions (East, West, North, South).
-     
-insight:
 
-   - The east region generated the highest total sales, followed by the west region. This suggests that marketing and product strategies in the east region are performing well.
+2. Total Sales by Product Category (Funnel Chart):
+   - The funnel chart visualized the sales across different product categories, from the most sold to the least sold.
+
+3. Total Sales by Month (Line Chart):
+   - The line chart visualized monthly sales trends over the analysis period.
+
+4. Total Sales Trends by Region (Line Chart):
+   - This additional line chart compared the total sales trends by region across different months.
+
+# key insights and findings
 
 
