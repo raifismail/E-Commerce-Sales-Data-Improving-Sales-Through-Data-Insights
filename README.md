@@ -38,7 +38,9 @@ The key stakeholders for this project include:
 
 1. Total Sales by Region (Stacked Column Chart):
    - This chart provided a breakdown of total sales across the regions (East, West, North, South).
+     
 insight:
+
    - The east region generated the highest total sales, followed by the west region. This suggests that marketing and product strategies in the east region are performing well.
 
 
