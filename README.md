@@ -50,4 +50,9 @@ The key stakeholders for this project include:
 
 # key insights and findings
 
+1. Regional Performance:
+   - The stacked column chart indicates that the East and West regions generate the highest total sales, with the South and 
+     North regions trailing behind. This suggests that marketing and sales efforts should focus on expanding in South and 
+     North to balance the performance.
+
 
