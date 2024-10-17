@@ -18,6 +18,19 @@ The goal of this project was to analyze the sales data of an e-commerce platform
 
 The analysis was conducted using Excel, BigQuery, R programming, and Power BI for visualization.
 
+
 ![screenshot_of_visualizations](https://github.com/raifismail/E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights/blob/d19134860ff272497ad25f89a8759da29244827a/Screenshot%202024-10-16%20114313.png)
+
+
+# Stakeholders
+The key stakeholders for this project include:
+
+1) E-commerce Marketing Team : To identify high-performing regions and product categories for targeted campaigns.
+
+2) Sales and Product Teams : To gain insights into top-selling products and optimize inventory and pricing strategies.
+
+3) Operations and Logistics : To understand regional performance and optimize resource allocation to meet demand more efficiently.
+
+4) Business Analysts and Data Teams : To utilize insights from data trends and analysis to inform future business decisions.
 
 
