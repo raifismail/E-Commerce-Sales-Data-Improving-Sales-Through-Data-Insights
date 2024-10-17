@@ -55,4 +55,8 @@ The key stakeholders for this project include:
      North regions trailing behind. This suggests that marketing and sales efforts should focus on expanding in South and 
      North to balance the performance.
 
+2. Top-performing Product Categories
+   -
+   
+
 
