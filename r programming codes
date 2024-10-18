@@ -1,0 +1,92 @@
+install.packages("tidyvere")
+install.packages("dplyr")
+install.packages("lubridate")
+install.packages("maps")
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(maps)
+ecommerce_data <- read.csv("e_stores_sales_data.csv")
+head(ecommerce_data)
+glimpse(ecommerce_data)
+colnames(ecommerce_data)
+str(ecommerce_data)
+# Fix inconsistent date formats
+unique(ecommerce_data$date)
+# Ensure the Date column is treated as a character before parsing
+ecommerce_data$Date <- as.character(ecommerce_data$date)
+
+# Apply date format parsing with mutate to create a new Cleaned_Date column
+ecommerce_data <- ecommerce_data %>%
+  mutate(
+    Cleaned_Date = case_when(
+      # Handle MM/DD/YYYY format
+      grepl("^\\d{1,2}/\\d{1,2}/\\d{4}$", Date) ~ as.Date(Date, format = "%m/%d/%Y"),
+      
+      # Handle "Day-Month" without year (Assume the current year is 2024)
+      grepl("^\\d{1,2}-\\w{3}$", Date) ~ as.Date(paste(Date, "2024"), format = "%d-%b %Y"),
+      
+      # Handle "Full day name, Month Day, Year"
+      grepl("^[A-Za-z]+, \\w+ \\d{1,2}, \\d{4}$", Date) ~ as.Date(Date, format = "%A, %B %d, %Y"),
+      
+      TRUE ~ NA_Date_  # Set unparseable dates to NA
+    )
+  )
+
+# Handle missing Quantity_Sold by filling with 0
+ecommerce_data$quantity_sold[is.na(ecommerce_data$quantity_sold)] <- 0
+# Step 1: Remove non-numeric characters and convert to numeric
+ecommerce_data$unit_price <- as.numeric(gsub("[^0-9.]", "", ecommerce_data$unit_price))
+
+# Step 2: Calculate the average unit price
+average_price <- mean(ecommerce_data$unit_price, na.rm = TRUE)
+
+# Step 3: Replace NA values with the average price
+ecommerce_data$unit_price[is.na(ecommerce_data$unit_price)] <- average_price
+
+# Calculate Total Sales (Quantity_Sold * Unit_Price)
+ecommerce_data <- ecommerce_data %>%
+  mutate(Total_Sales = quantity_sold * unit_price)
+
+# --- Chart 1: Bar Chart for Total Sales by Product Category ---
+# Summarize total sales by product category
+sales_by_category <- ecommerce_data %>%
+  group_by(Products) %>%
+  summarise(Total_Sales = sum(Total_Sales)) %>%
+  arrange(desc(Total_Sales))
+install.packages("ggplot2")
+library(ggplot2)
+
+># Bar Chart for Product Category
+  ggplot(sales_by_category, aes(x = reorder(Products, -Total_Sales), y = Total_Sales)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Total Sales by Product Category", x = "Product Category", y = "Total Sales") +
+  theme_minimal()
+
+# Extract the month from Date
+ecommerce_data$Month<- month(ecommerce_data$Cleaned_Date, label = TRUE)
+
+# Summarize total sales by month
+sales_by_month <- ecommerce_data %>%
+  group_by(Month) %>%
+  summarise(Total_Sales = sum(Total_Sales))
+
+# Line Chart for Monthly Sales Trends
+ggplot(sales_by_month, aes(x = Month, y = Total_Sales, group = 1)) +
+  geom_line(color = "blue", size = 1.2) +
+  geom_point(color = "red", size = 3) +
+  labs(title = "Monthly Sales Trends", x = "Month", y = "Total Sales") +
+  theme_minimal()
+
+# Summarize total sales by region
+sales_by_region <- ecommerce_data %>%
+  group_by(region) %>%
+  summarise(Total_Sales = sum(Total_Sales, na.rm = TRUE)) %>%
+  arrange(desc(Total_Sales))
+
+# Bar Chart for Total Sales by Region
+ggplot(sales_by_region, aes(x = region, y = Total_Sales)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Total Sales by Region", x = "Region", y = "Total Sales") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
