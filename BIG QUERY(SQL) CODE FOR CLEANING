@@ -28,4 +28,4 @@ SELECT *,
 FROM `prefab-environs-429608-s2.EStore_Sales_Data.e_data`;
 
 
-# ANALYSIS CODE FOR SQL
+
