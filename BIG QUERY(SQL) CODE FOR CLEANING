@@ -1,0 +1,31 @@
+
+SELECT *,
+ -- Clean Date Column
+  CASE 
+    WHEN SAFE.PARSE_DATE('%m/%d/%Y', SAFE_CAST(Date AS STRING)) IS NOT NULL 
+         THEN SAFE.PARSE_DATE('%m/%d/%Y', SAFE_CAST(Date AS STRING))
+     END AS Cleaned_Date,
+ -- Clean Quantity_Sold Column
+  CASE 
+    WHEN Quantity_Sold IS NULL THEN 0 
+    ELSE Quantity_Sold 
+  END AS Cleaned_Quantity_Sold,
+ -- Clean Unit_Price Column (Removing Non-numeric Characters)
+  CASE 
+    WHEN SAFE_CAST(REGEXP_REPLACE(Unit_Price, r'[^0-9.]', '') AS FLOAT64) IS NULL THEN 
+      CAST((SELECT AVG(SAFE_CAST(REGEXP_REPLACE(Unit_Price, r'[^0-9.]', '') AS FLOAT64)) 
+            FROM `prefab-environs-429608-s2.EStore_Sales_Data.e_data`) AS INT64)
+    ELSE CAST(SAFE_CAST(REGEXP_REPLACE(Unit_Price, r'[^0-9.]', '') AS FLOAT64) AS INT64) 
+  END AS Cleaned_Unit_Price,
+ -- Calculate Total Sales (Unit_Price * Quantity_Sold)
+  CASE
+    WHEN SAFE_CAST(REGEXP_REPLACE(Unit_Price, r'[^0-9.]', '') AS FLOAT64) IS NOT NULL 
+         AND Quantity_Sold IS NOT NULL THEN
+      SAFE_CAST(REGEXP_REPLACE(Unit_Price, r'[^0-9.]', '') AS FLOAT64) * Quantity_Sold
+    ELSE 0
+  END AS Cleaned_Total_Sales
+
+FROM `prefab-environs-429608-s2.EStore_Sales_Data.e_data`;
+
+
+# ANALYSIS CODE FOR SQL
