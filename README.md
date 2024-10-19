@@ -18,7 +18,7 @@ The goal of this project was to analyze the sales data of an e-commerce platform
      
 # Data cleaning 
 
- - sql code used for data cleaning and anlysis added in repository you can find it [here]()
+ sql code used for data cleaning and anlysis added in repository you can find it [here]()
 Before analyzing the data, I performed the following data cleaning steps to ensure the dataset was ready for analysis:
 
 1. Date Formatting:
