@@ -113,4 +113,8 @@ The key stakeholders for this project include:
 # Conclusion
 
 This e-commerce case study provides actionable insights into regional sales distribution, product category performance, and seasonal trends. By implementing the recommendations, the e-commerce business can increase its total revenue, optimize marketing efforts, and grow underperforming regions.
+
+## Dataset
+
+The dataset used for this analysis is included in this repository. You can find it[here](https://github.com/raifismail/E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights/blob/abbf93eb1a06ffb7cecbf241e4e29cb1389726d4/E-Store%20Sales%20Data%20Improving%20Sales%20Through%20Data%20Insights.csv)
    
