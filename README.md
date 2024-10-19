@@ -1,4 +1,4 @@
-## E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights
+   ## E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights
 
 # Project Overview
 
@@ -21,21 +21,21 @@ The goal of this project was to analyze the sales data of an e-commerce platform
 Before analyzing the data, I performed the following data cleaning steps to ensure the dataset was ready for analysis:
 
 1. Date Formatting:
-   -Standardized inconsistent date formats (e.g., MM/DD/YYYY and DD/MM/YYYY) into a uniform format using BigQuery's SAFE.PARSE_DATE function.
+   - Standardized inconsistent date formats (e.g., MM/DD/YYYY and DD/MM/YYYY) into a uniform format using BigQuery's SAFE.PARSE_DATE function.
 
 2. Handling Missing Values:
-   -Replaced missing values in the Quantity_Sold column with 0, assuming no sales were made for those records.
+   - Replaced missing values in the Quantity_Sold column with 0, assuming no sales were made for those records.
 
-   -Imputed missing values in the Unit_Price column with the average unit price to maintain the integrity of the total sales calculations.
+   - Imputed missing values in the Unit_Price column with the average unit price to maintain the integrity of the total sales calculations.
 
 3. Data Entry Errors:
-   -Cleaned non-numeric characters (e.g., $ signs) from the Unit_Price column using regular expressions and converted the column to numeric data.
+   - Cleaned non-numeric characters (e.g., $ signs) from the Unit_Price column using regular expressions and converted the column to numeric data.
 
 4. Removing Duplicate Entries:
-   -Checked for and removed duplicate entries to avoid skewing the analysis.
+   - Checked for and removed duplicate entries to avoid skewing the analysis.
 
 5. Calculating Cleaned Total Sales:
-   -Created a new column, Cleaned_Total_Sales, by multiplying the cleaned Unit_Price and Quantity_Sold columns.
+   - Created a new column, Cleaned_Total_Sales, by multiplying the cleaned Unit_Price and Quantity_Sold columns.
 
 The analysis was conducted using  BigQuery, R programming, and Power BI for visualization.
 
