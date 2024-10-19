@@ -15,8 +15,29 @@ The goal of this project was to analyze the sales data of an e-commerce platform
    - Analyzing monthly sales trends to spot seasonality and plan promotional campaigns more effectively.
 
    - Examining the sales trends across regions to identify regional growth opportunities and potential sales strategies.
+     
+# Data cleaning 
 
-The analysis was conducted using Excel, BigQuery, R programming, and Power BI for visualization.
+Before analyzing the data, I performed the following data cleaning steps to ensure the dataset was ready for analysis:
+
+1. Date Formatting:
+   -Standardized inconsistent date formats (e.g., MM/DD/YYYY and DD/MM/YYYY) into a uniform format using BigQuery's SAFE.PARSE_DATE function.
+
+2. Handling Missing Values:
+   -Replaced missing values in the Quantity_Sold column with 0, assuming no sales were made for those records.
+
+   -Imputed missing values in the Unit_Price column with the average unit price to maintain the integrity of the total sales calculations.
+
+3. Data Entry Errors:
+   -Cleaned non-numeric characters (e.g., $ signs) from the Unit_Price column using regular expressions and converted the column to numeric data.
+
+4. Removing Duplicate Entries:
+   -Checked for and removed duplicate entries to avoid skewing the analysis.
+
+5. Calculating Cleaned Total Sales:
+   -Created a new column, Cleaned_Total_Sales, by multiplying the cleaned Unit_Price and Quantity_Sold columns.
+
+The analysis was conducted using  BigQuery, R programming, and Power BI for visualization.
 
 
 ![screenshot_of_visualizations](https://github.com/raifismail/E-Commerce-Sales-Data-Improving-Sales-Through-Data-Insights/blob/d19134860ff272497ad25f89a8759da29244827a/Screenshot%202024-10-16%20114313.png)
